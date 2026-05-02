@@ -1,4 +1,4 @@
-fromfflask import Flask, request
+from flask import Flask, request
 import requests
 
 app = Flask(__name__)
@@ -7,7 +7,6 @@ BOT_TOKEN = "8305667170:AAEnbi96RL8d3YtNVwPrY1bezjMQf-FuTDI"
 CHAT_ID = "1861373830"
 
 def send_telegram(msg):
-
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
 
     data = {
@@ -27,14 +26,7 @@ def webhook():
     price = data['price']
     timeframe = data['timeframe']
 
-    msg = f"""
-📢 BYOMOKESH AB SIGNAL
-
-🪙 Symbol: {ticker}
-📈 Signal: {signal}
-💰 Price: {price}
-⏰ Timeframe: {timeframe}
-"""
+    msg = f"BYOMOKESH AB SIGNAL\n\nSymbol: {ticker}\nSignal: {signal}\nPrice: {price}\nTimeframe: {timeframe}"
 
     send_telegram(msg)
 
